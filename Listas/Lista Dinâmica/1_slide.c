@@ -1,3 +1,9 @@
+/*
+O exerc√≠cio proposto era para que o programador desenvolvesse um programa que alocasse a mem√≥ria de 
+acordo com o valor digitado pelo usu√°rio e que em seguida essa mem√≥ria fosse preenchida por Produtos (que seria uma estrutura),
+al√©m disso, o programador deveria apresentar qual dos produtos era o mais caro e qual possu√≠a a maior quantidade de estoque.
+*/
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<locale.h>
@@ -22,7 +28,7 @@ void inserirProduto(int tamanho,struct sProduto *produto)
         scanf("%d",&produto[i].codigo);
         printf("\nInsira o quantidade: ");
         scanf("%d",&produto[i].qtd);
-        printf("\nInsira o preÁo: ");
+        printf("\nInsira o pre√ßo: ");
         scanf("%f",&produto[i].preco);
     }
 }
@@ -43,7 +49,7 @@ void retornaMaiorPreco(int tamanho,struct sProduto *produto)
         }
     }
 
-    printf("\nO Produto de cÛdigo %d È quem possui o maior preÁo, tendo o valor de R$%.2f",codigo, precoMaior);
+    printf("\nO Produto de c√≥digo %d √© quem possui o maior pre√ßo, tendo o valor de R$%.2f",codigo, precoMaior);
     printf("\n");
 }
 
@@ -63,7 +69,7 @@ void retornaMaiorQtd(int tamanho,struct sProduto *produto)
         }
     }
 
-    printf("\nO Produto de cÛdigo %d È quem possui o maior quantia em estoque, tendo atualmente %d em estoque.",codigo, qtd);
+    printf("\nO Produto de c√≥digo %d √© quem possui o maior quantia em estoque, tendo atualmente %d em estoque.",codigo, qtd);
     printf("\n");
 }
 
@@ -77,7 +83,7 @@ void main()
 
     do
     {
-        printf("\n<Menu>\n1-Definir tamanho da memÛria que ser· alocada\n2-Inserir a quantidade de produtos que definiu na memoria.\n3-Apresenta Produto de maior valor.\n4-Apresenta Produto com maior quantia em estoque.\n0-Encerrar Programa\n\nSelecione uma OpÁ„o: ");
+        printf("\n<Menu>\n1-Definir tamanho da mem√≥ria que ser√° alocada\n2-Inserir a quantidade de produtos que definiu na memoria.\n3-Apresenta Produto de maior valor.\n4-Apresenta Produto com maior quantia em estoque.\n0-Encerrar Programa\n\nSelecione uma Op√ß√£o: ");
         scanf("%d",&op);
 
         switch(op)
