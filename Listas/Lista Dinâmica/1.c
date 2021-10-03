@@ -1,3 +1,20 @@
+/*
+Exerc√≠cio 1: 
+
+Desenvolva um programa em Linguagem C que permita fazer as seguintes opera√ß√µes 
+sobre uma lista linear est√°tica de n√∫meros inteiros positivos: 
+
+    a. Inserir um elemento em uma posi√ß√£o espec√≠fica;
+    b. Remover um elemento de uma posi√ß√£o espec√≠fica; 
+    c. Acessar um elemento de uma posi√ß√£o espec√≠fica;
+    d. Procurar um determinado elemento;
+    e. Exibir os elementos do vetor.
+    
+Quantos bytes seu programa principal ocupa para armazenar dados?
+
+OBS: Defina fun√ß√µes para cada opera√ß√£o.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
@@ -21,34 +38,34 @@ typedef struct formando
 
 typedef struct cell
 {
-    FORMANDO f; //conte˙do da cÈlula
-    struct cell *next; //endereÁo da prÛxima cÈlula
+    FORMANDO f; //conte√∫do da c√©lula
+    struct cell *next; //endere√ßo da pr√≥xima c√©lula
 } CELULA;
 
 CELULA *init(CELULA *lista)
 {
-    //inicializa o ponteiro externo ‡ lista com o valor NULL
+    //inicializa o ponteiro externo √† lista com o valor NULL
     lista = NULL;
     return lista;
 }
 
-int empty (CELULA *lista)  //verifica se a lista encadeada est· vazia
+int empty (CELULA *lista)  //verifica se a lista encadeada est√° vazia
 {
-    if(lista == NULL) //lista È o endereÁo do primeiro nÛ da lista
+    if(lista == NULL) //lista √© o endere√ßo do primeiro n√≥ da lista
         return 1;
     return 0;
 }
 
 CELULA *getnode()
 {
-    //essa funÁ„o aloca/cria um nÛ para uma lista encadeada
+    //essa fun√ß√£o aloca/cria um n√≥ para uma lista encadeada
     return (CELULA*) malloc(sizeof(CELULA));
 }
 
 void freenode(CELULA *q)
 {
-    //liberar o espaÁo de memÛria ocupado por um nÛ
-    //q seria o endereÁo a ser liberado
+    //liberar o espa√ßo de mem√≥ria ocupado por um n√≥
+    //q seria o endere√ßo a ser liberado
     free(q);
 }
 
@@ -67,7 +84,7 @@ CELULA *insere_inicio(CELULA *lista, FORMANDO f)
     }
     else
     {
-        printf("\nERRO na alocaÁ„o do nÛ.\n");
+        printf("\nERRO na aloca√ß√£o do n√≥.\n");
         return NULL;
     }
 
@@ -102,7 +119,7 @@ CELULA *insere_fim(CELULA *lista, FORMANDO f)
     } //fim do if (q!=NULL)
     else
     {
-        printf("\nERRO na alocaÁ„o do nÛ.\n");
+        printf("\nERRO na aloca√ß√£o do n√≥.\n");
         return NULL;
 
     }
@@ -115,7 +132,7 @@ CELULA *remove_inicio(CELULA *lista)
     CELULA *q;
 
     q = lista;
-    if(!empty(lista))  // h· itens na lista
+    if(!empty(lista))  // h√° itens na lista
     {
         lista = q->next;
         freenode(q);
@@ -144,12 +161,12 @@ CELULA *pesquisa (CELULA *lista,FORMANDO f)
                     && q->f.anoFormatura == f.anoFormatura
                     && q->f.curso == f.curso)
             {
-                return q; // encontrou o nÛ
+                return q; // encontrou o n√≥
             }
-            q = q-> next; //avanÁa para o prÛximo
+            q = q-> next; //avan√ßa para o pr√≥ximo
         }
     }
-    return NULL; // caso n„o encontre
+    return NULL; // caso n√£o encontre
 }
 
 CELULA *pesquisaCurso (CELULA *lista)
@@ -164,12 +181,12 @@ CELULA *pesquisaCurso (CELULA *lista)
         {
             if(q->f.curso == lista->f.curso)
             {
-                return q; // encontrou o nÛ
+                return q; // encontrou o n√≥
             }
-            q = q-> next; //avanÁa para o prÛximo
+            q = q-> next; //avan√ßa para o pr√≥ximo
         }
     }
-    return NULL; // caso n„o encontre
+    return NULL; // caso n√£o encontre
 }
 
 CELULA *remove_valor(CELULA *lista, FORMANDO f)
@@ -180,7 +197,7 @@ CELULA *remove_valor(CELULA *lista, FORMANDO f)
     if((q=pesquisa(lista,f)) != NULL)
     {
         aux = lista;
-        if(aux == q)  //nÛ est· no inicio da lista
+        if(aux == q)  //n√≥ est√° no inicio da lista
         {
             remove_inicio(lista);
         }
@@ -195,7 +212,7 @@ CELULA *remove_valor(CELULA *lista, FORMANDO f)
         }
         return lista; //removeu
     }
-    return NULL; //n„o removeu
+    return NULL; //n√£o removeu
 }
 
 void exibe_lista(CELULA *lista)
@@ -255,7 +272,7 @@ void exibe_lista_por_Curso(CELULA *lista)
 
     if(achou == 0)
     {
-        printf("\nN„o h· mais resultados.\n");
+        printf("\nN√£o h√° mais resultados.\n");
     }
 
 
@@ -277,7 +294,7 @@ FORMANDO lerDados(CELULA *lista)
     printf("\nInsira o curso: ");
     scanf("%s",&curso);
     strcpy(f.curso,curso);
-    printf("\nInsira o prontu·rio: ");
+    printf("\nInsira o prontu√°rio: ");
     scanf("%d",&prontuario);
     printf("\nInsira o ano da formatura: ");
     scanf("%d",&anoFormatura);
@@ -294,7 +311,7 @@ void main()
     setlocale(LC_ALL,"");
 
     //instanciando um ponteiro externo que
-    //aponta para o primeiro nÛ da lista.
+    //aponta para o primeiro n√≥ da lista.
     CELULA *ptrlista;
     ptrlista = init(ptrlista);
 
@@ -309,7 +326,7 @@ void main()
         printf("\n3-Imprimir Lista por Curso.");
         printf("\n0-Encerrar Programa.");
 
-        printf("\n\nSelecione uma opÁ„o: ");
+        printf("\n\nSelecione uma op√ß√£o: ");
         scanf("%d",&opcao);
 
         switch(opcao)
