@@ -1,3 +1,18 @@
+/*
+Este código é referente à dois exercícios que certa vez tive que realizar.
+
+Exercício 1: Imagine uma implementação circular de uma fila em um vetor fila[0..9] que contém:
+ 16 17 18 19 20 11 12 13 14
+Suponha que o primeiro elemento da fila está na posição de índice 5 e o último está na 
+posição de índice 3. Essa fila está cheia?
+
+
+Exercício 3: Escreva uma função que devolva o comprimento (ou seja, o número de elementos) de 
+uma determinada fila estática circular.
+
+*/
+
+
 #include<stdio.h>
 
 #define TAMMAX 10
