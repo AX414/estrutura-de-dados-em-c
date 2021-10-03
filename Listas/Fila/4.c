@@ -1,3 +1,8 @@
+/*
+Exerc√≠cio 4:  Escreva um programa em Linguagem C que seja capaz de inverter a ordem dos 
+elementos de uma fila utilizando uma pilha como estrutura auxiliar.
+*/
+
 #include<stdio.h>
 #include<locale.h>
 
@@ -88,7 +93,7 @@ void imprime(Pilha *s)
 typedef struct sFila
 {
     int items[TAMMAX]; //define uma fila de 10 slots
-    int inicio, fim; //vari·vel que determina o inÌcio e o fim dessa fila
+    int inicio, fim; //vari√°vel que determina o in√≠cio e o fim dessa fila
 } Fila;
 
 void inicializa (Fila *f)
@@ -199,7 +204,7 @@ void inverterFila(Fila *f)
 
     if(!vazia(f))
     {
-        while(i!=((f->fim+1)%TAMMAX))//enquanto a fila n„o estiver vazia, empilhe na pilha
+        while(i!=((f->fim+1)%TAMMAX))//enquanto a fila n√£o estiver vazia, empilhe na pilha
         {
             aux = desenfileirar(f);// tira da fila
             empilhar(&s,aux);//empilhando na pilha
@@ -215,7 +220,7 @@ void inverterFila(Fila *f)
     int valor;
     if(!pilha_vazia(&s))
     {
-        while(!pilha_vazia(&s))//enquanto a pilha n„o estiver vazia, enfileira na fila
+        while(!pilha_vazia(&s))//enquanto a pilha n√£o estiver vazia, enfileira na fila
         {
             valor = desempilhar(&s);
             enfileirar(f,valor);
@@ -223,7 +228,7 @@ void inverterFila(Fila *f)
     }
     printf("\n\nPilha depois:");
     imprime(&s);
-    printf("\n\nFila apÛs receber a transferÍncia: ");
+    printf("\n\nFila ap√≥s receber a transfer√™ncia: ");
     imprimir(f);
 
 
