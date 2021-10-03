@@ -1,3 +1,11 @@
+/*
+O c√≥digo a seguir foi mais uma forma que gosto de estudar as estruturas, basicamente eu realizo alguns testes com o c√≥digo
+base e desenvolvo um programa que use todas as fun√ß√µes dele.
+
+No caso a seguir temos uma estrutura do tipo lista com um vetor de char do tamanho 10 e √≠ndice N. Com ela, eu realizei algumas inser√ß√µes, remo√ß√µes, impress√µes,
+verifica√ß√µes, acessei um √≠ndice para saber o que h√° nele e executei a busca de um valor para receber o seu √≠ndice.
+*/
+
 #include<stdio.h>
 #include<locale.h>
 
@@ -18,7 +26,7 @@ void inicializar(LISTA *L)  //inicializa a lista com -1, pois o vetor inicia com
 char acessar_elemento(LISTA *L, int k)
 {
     /*
-    Essa funÁ„o retorna o elemento que est· localizado no indice k
+    Essa fun√ß√£o retorna o elemento que est√° localizado no indice k
     */
 
     if((k<0) || (k> (L->n)))
@@ -32,7 +40,7 @@ char acessar_elemento(LISTA *L, int k)
 int buscar_elemento(LISTA *L, char val_b)
 {
     /*
-    Essa funÁ„o recebe um valor e
+    Essa fun√ß√£o recebe um valor e
     deve retornar o indice de onde o elemento se encontra
     */
 
@@ -62,8 +70,8 @@ int determina_tamanho(LISTA *L)
 int lista_cheia(LISTA *L)
 {
     if(L -> n+1 == TAMF)
-        /*se o indice for igual ao tamanho m·ximo, retorna 1,
-         ou seja verdade que est· cheia*/
+        /*se o indice for igual ao tamanho m√°ximo, retorna 1,
+         ou seja verdade que est√° cheia*/
         return 1;
     else
         return 0;
@@ -74,7 +82,7 @@ int lista_vazia(LISTA *L)
 {
     if(L -> n == -1)
         /*se o indice for igual ao -1(nada), retorna 1,
-         ou seja verdade que est· vazia*/
+         ou seja verdade que est√° vazia*/
         return 1;
     else
         return 0;
@@ -86,7 +94,7 @@ int inserirNoFim(LISTA *L, char elemento)
 
     if(lista_cheia(L))
     {
-        printf("\nErro - A lista est· cheia.");
+        printf("\nErro - A lista est√° cheia.");
         return 1;
     }
     L-> valor[L->n+1] = elemento;
@@ -100,7 +108,7 @@ int inserirNoInicio(LISTA *L, char elemento)
 
     if(lista_cheia(L))
     {
-        printf("\nErro - A lista est· cheia.");
+        printf("\nErro - A lista est√° cheia.");
         return 1;
     }
 
@@ -130,7 +138,7 @@ int inserirNaPosicao(LISTA *L, int k, char elemento)
     }
     if(k<0||k>(L->n+1))
     {
-        printf("\nErro - o elemento est· fora dos limites.");
+        printf("\nErro - o elemento est√° fora dos limites.");
         return 1;
     }
 
@@ -196,25 +204,25 @@ int main()
 {
     setlocale(LC_ALL,"");
     LISTA L; //declara lista do tipo LISTA
-    inicializar(&L); // inicializa a lista passando o endereÁo da mesma como par‚metro
-    printf("\n\nA-Inserir um elemento em uma posiÁ„o especÌfica\n\n");
+    inicializar(&L); // inicializa a lista passando o endere√ßo da mesma como par√¢metro
+    printf("\n\nA-Inserir um elemento em uma posi√ß√£o espec√≠fica\n\n");
     inserirNaPosicao(&L,0,1);
     inserirNaPosicao(&L,1,2);
     inserirNaPosicao(&L,2,3);
     inserirNaPosicao(&L,3,4);
     imprimir_lista(&L);
-    printf("\n\nB-Remover um elemento de uma posiÁ„o especÌfica\n\n");
+    printf("\n\nB-Remover um elemento de uma posi√ß√£o espec√≠fica\n\n");
     remover_elemento(&L,1);
     imprimir_lista(&L);
-    printf("\n\nC-Acessar um elemento de uma posiÁ„o especÌfica\n\n");
+    printf("\n\nC-Acessar um elemento de uma posi√ß√£o espec√≠fica\n\n");
     int elemento = acessar_elemento(&L,0);
     printf("O indice 0 guarda o elemento: %d",elemento);
     printf("\n\nD-Procurar um determinado elemento\n\n");
     int busca = buscar_elemento(&L,2);
     if(busca==-1)
-        printf("O elemento n„o est· na lista.");
+        printf("O elemento n√£o est√° na lista.");
     else
-        printf("O elemento 2 est· na lista.");
+        printf("O elemento 2 est√° na lista.");
 
     printf("\n\nE-Exibir os elementos do vetor\n\n");
     imprimir_lista(&L);
