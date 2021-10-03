@@ -1,3 +1,9 @@
+/*
+ExercÃ­cio 2:  Desenvolva um programa em Linguagem C que permita ao usuÃ¡rio inserir e remover 
+elementos nos extremos de uma sequÃªncia de itens, ou seja, no inÃ­cio e no final de uma 
+lista linear estÃ¡tica.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -15,34 +21,34 @@ typedef struct contato
 
 typedef struct cell
 {
-    CONTATO c; //conteúdo da célula
-    struct cell *next; //endereço da próxima célula
+    CONTATO c; //conteÃºdo da cÃ©lula
+    struct cell *next; //endereÃ§o da prÃ³xima cÃ©lula
 } CELULA;
 
 CELULA *init(CELULA *lista)
 {
-    //inicializa o ponteiro externo à lista com o valor NULL
+    //inicializa o ponteiro externo Ã  lista com o valor NULL
     lista = NULL;
     return lista;
 }
 
-int empty (CELULA *lista)  //verifica se a lista encadeada está vazia
+int empty (CELULA *lista)  //verifica se a lista encadeada estÃ¡ vazia
 {
-    if(lista == NULL) //lista é o endereço do primeiro nó da lista
+    if(lista == NULL) //lista Ã© o endereÃ§o do primeiro nÃ³ da lista
         return 1;
     return 0;
 }
 
 CELULA *getnode()
 {
-    //essa função aloca/cria um nó para uma lista encadeada
+    //essa funÃ§Ã£o aloca/cria um nÃ³ para uma lista encadeada
     return (CELULA*) malloc(sizeof(CELULA));
 }
 
 void freenode(CELULA *q)
 {
-    //liberar o espaço de memória ocupado por um nó
-    //q seria o endereço a ser liberado
+    //liberar o espaÃ§o de memÃ³ria ocupado por um nÃ³
+    //q seria o endereÃ§o a ser liberado
     free(q);
 }
 
@@ -61,7 +67,7 @@ CELULA *insere_inicio(CELULA *lista, CONTATO contato)
     }
     else
     {
-        printf("\nERRO na alocação do nó.\n");
+        printf("\nERRO na alocaÃ§Ã£o do nÃ³.\n");
         return NULL;
     }
 
@@ -96,7 +102,7 @@ CELULA *insere_fim(CELULA *lista, CONTATO contato)
     } //fim do if (q!=NULL)
     else
     {
-        printf("\nERRO na alocação do nó.\n");
+        printf("\nERRO na alocaÃ§Ã£o do nÃ³.\n");
         return NULL;
 
     }
@@ -109,7 +115,7 @@ CELULA *remove_inicio(CELULA *lista)
     CELULA *q;
 
     q = lista;
-    if(!empty(lista))  // há itens na lista
+    if(!empty(lista))  // hÃ¡ itens na lista
     {
         lista = q->next;
         freenode(q);
@@ -135,12 +141,12 @@ CELULA *pesquisa (CELULA *lista,char nome[50])
         {
             if(q->c.nomeContato == nome)
             {
-                return q; // encontrou o nó
+                return q; // encontrou o nÃ³
             }
-            q = q-> next; //avança para o próximo
+            q = q-> next; //avanÃ§a para o prÃ³ximo
         }
     }
-    return NULL; // caso não encontre
+    return NULL; // caso nÃ£o encontre
 }
 
 CELULA *remove_valor(CELULA *lista, CONTATO contato)
@@ -151,7 +157,7 @@ CELULA *remove_valor(CELULA *lista, CONTATO contato)
     if((q=pesquisa(lista,contato.nomeContato)) != NULL)
     {
         aux = lista;
-        if(aux == q)  //nó está no inicio da lista
+        if(aux == q)  //nÃ³ estÃ¡ no inicio da lista
         {
             remove_inicio(lista);
         }
@@ -166,7 +172,7 @@ CELULA *remove_valor(CELULA *lista, CONTATO contato)
         }
         return lista; //removeu
     }
-    return NULL; //não removeu
+    return NULL; //nÃ£o removeu
 }
 
 
@@ -182,7 +188,7 @@ void exibe_lista(CELULA *lista)
     }
     while(aux != NULL)
     {
-        printf("\n|Nome: %s - Número1: %s - Número2: %s - Ringtone: %s| ",
+        printf("\n|Nome: %s - NÃºmero1: %s - NÃºmero2: %s - Ringtone: %s| ",
                aux->c.nomeContato,aux->c.nr_UM,aux->c.nr_DOIS,aux->c.nome_Ringtone);
         aux = aux ->next;
     }
@@ -200,13 +206,13 @@ CONTATO lerDados(CELULA *lista)
     scanf("%s",&nome);
     strcpy(c.nomeContato,nome);
     fflush(stdin);
-    printf("\nInsira o primeiro número do contato: ");
+    printf("\nInsira o primeiro nÃºmero do contato: ");
     scanf("%s",&nrUM);
     strcpy(c.nr_UM,nrUM);
-    printf("\nInsira o número alternativo: ");
+    printf("\nInsira o nÃºmero alternativo: ");
     scanf("%s",&nrDOIS);
     strcpy(c.nr_DOIS,nrDOIS);
-    printf("\nEscreva o nome da música que deseja como ringtone: ");
+    printf("\nEscreva o nome da mÃºsica que deseja como ringtone: ");
     scanf("%s",&ringtone);
     strcpy(c.nome_Ringtone,ringtone);
 
@@ -252,7 +258,7 @@ void main()
         printf("\n4-Pesquisar Contato.");
         printf("\n0-Sair da aba de Contatos.");
 
-        printf("\n\nSelecione uma das Opções: ");
+        printf("\n\nSelecione uma das OpÃ§Ãµes: ");
         scanf("%d",&op);
 
         switch(op)
@@ -271,7 +277,7 @@ void main()
         case 4:
             break;
         case 0:
-            printf("\nO usuário saiu da aba de Contatos.\n\n\n");
+            printf("\nO usuÃ¡rio saiu da aba de Contatos.\n\n\n");
             break;
         }
     }
