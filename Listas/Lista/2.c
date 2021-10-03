@@ -1,3 +1,9 @@
+/*
+Neste caso temos uma estrutura semelhante √† estrutura anterior, a √∫nica diferen√ßa √© que 
+aqui eu realizo a remo√ß√£o de elementos, neste caso eu removo um elemento de acordo com
+seu √≠ndice e tamb√©m realizei uma fun√ß√£o para remover o in√≠cio da lista.
+*/
+
 #include<stdio.h>
 #include<locale.h>
 
@@ -18,7 +24,7 @@ void inicializar(LISTA *L)  //inicializa a lista com -1, pois o vetor inicia com
 char acessar_elemento(LISTA *L, int k)
 {
     /*
-    Essa funÁ„o retorna o elemento que est· localizado no indice k
+    Essa fun√ß√£o retorna o elemento que est√° localizado no indice k
     */
 
     if((k<0) || (k> (L->n)))
@@ -32,7 +38,7 @@ char acessar_elemento(LISTA *L, int k)
 int buscar_elemento(LISTA *L, char val_b)
 {
     /*
-    Essa funÁ„o recebe um valor e
+    Essa fun√ß√£o recebe um valor e
     deve retornar o indice de onde o elemento se encontra
     */
 
@@ -62,8 +68,8 @@ int determina_tamanho(LISTA *L)
 int lista_cheia(LISTA *L)
 {
     if(L -> n+1 == TAMF)
-        /*se o indice for igual ao tamanho m·ximo, retorna 1,
-         ou seja verdade que est· cheia*/
+        /*se o indice for igual ao tamanho m√°ximo, retorna 1,
+         ou seja verdade que est√° cheia*/
         return 1;
     else
         return 0;
@@ -74,7 +80,7 @@ int lista_vazia(LISTA *L)
 {
     if(L -> n == -1)
         /*se o indice for igual ao -1(nada), retorna 1,
-         ou seja verdade que est· vazia*/
+         ou seja verdade que est√° vazia*/
         return 1;
     else
         return 0;
@@ -86,7 +92,7 @@ int inserirNoFim(LISTA *L, char elemento)
 
     if(lista_cheia(L))
     {
-        printf("\nErro - A lista est· cheia.");
+        printf("\nErro - A lista est√° cheia.");
         return 1;
     }
     L-> valor[L->n+1] = elemento;
@@ -100,7 +106,7 @@ int inserirNoInicio(LISTA *L, char elemento)
 
     if(lista_cheia(L))
     {
-        printf("\nErro - A lista est· cheia.");
+        printf("\nErro - A lista est√° cheia.");
         return 1;
     }
 
@@ -130,7 +136,7 @@ int inserirNaPosicao(LISTA *L, int k, char elemento)
     }
     if(k<0||k>(L->n+1))
     {
-        printf("\nErro - o elemento est· fora dos limites.");
+        printf("\nErro - o elemento est√° fora dos limites.");
         return 1;
     }
 
@@ -204,7 +210,7 @@ int main()
 {
     setlocale(LC_ALL,"");
     LISTA L; //declara lista do tipo LISTA
-    inicializar(&L); // inicializa a lista passando o endereÁo da mesma como par‚metro
+    inicializar(&L); // inicializa a lista passando o endere√ßo da mesma como par√¢metro
     inserirNoFim(&L,4);
     inserirNoFim(&L,3);
     inserirNoFim(&L,12);
@@ -213,7 +219,7 @@ int main()
     imprimir_lista(&L);
 
     remover_elemento(&L,2);
-    printf("\nLista removendo o elemento 2(n˙mero 12): ");
+    printf("\nLista removendo o elemento 2(n√∫mero 12): ");
     imprimir_lista(&L);
 
     removerInicio(&L);
