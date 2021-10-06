@@ -1,12 +1,17 @@
 /*
-O programa a seguir tem o intuito de demonstrar a diferenÁa entre os modos de 
-ordenaÁ„o de um vetor por Bubble-Sort e Select-Sort, alÈm disso, h· nele presente os dois tipos de buscas em que se pode ser realizada: Busca Exaustiva e Busca Sequencial (que È necess·rio um vetor ordenado para executar de forma correta).
+O programa a seguir tem o intuito de demonstrar a diferen√ßa entre os modos de 
+ordena√ß√£o de um vetor por Bubble-Sort e Select-Sort, al√©m disso, h√° nele presente 
+os dois tipos de buscas em que se pode ser realizada: Busca Exaustiva e Busca Sequencial 
+(que √© necess√°rio um vetor ordenado para executar de forma correta).
+
+Com rela√ß√£o ao exerc√≠cio, eu deveria permitir que o usu√°rio preenchesse um vetor de tamanho 15 
+e fosse capaz de executar as duas buscas e orden√°-lo das duas formas.
 */
 
 #include<stdio.h>
 #include<stdlib.h>
 #include<locale.h>
-# define TAM  15
+#define TAM  15
 
 int buscaExaustiva (int elem,int vetor[])
 {
@@ -15,7 +20,7 @@ int buscaExaustiva (int elem,int vetor[])
     {
         if (vetor[i] == elem)
         {
-            return i; // achou na posiÁ„o i
+            return i; // achou na posi√ß√£o i
         }
         else if(vetor[i] != elem && vetor[i] != NULL)
         {
@@ -24,7 +29,7 @@ int buscaExaustiva (int elem,int vetor[])
 
         if(vetor[i]!= elem && vetor[i] == NULL)
         {
-            return -1;   // n„o achou
+            return -1;   // n√£o achou
         }
 
     }
@@ -38,7 +43,7 @@ int buscaSequencial(int elem, int vetor[])
 
         if (vetor[i] == elem)
         {
-            return i; // achou na posiÁ„o i
+            return i; // achou na posi√ß√£o i
         }
         else if(elem != vetor[i] && elem >vetor [i])
         {
@@ -47,7 +52,7 @@ int buscaSequencial(int elem, int vetor[])
 
         if(vetor[i]>elem)
         {
-            return -1; // n„o achou
+            return -1; // n√£o achou
         }
 
     }
@@ -74,7 +79,7 @@ void selection_sort (int vetor[])
     int i, j, min, aux,trocas = 0;
     for (i = 0; i < (TAM - 1); i++)
     {
-        /* O minimo È o primeiro n˙mero n„o ordenado ainda */
+        /* O minimo √© o primeiro n√∫mero n√£o ordenado ainda */
         min = i;
         for (j = i+1; j < TAM; j++)
         {
@@ -84,7 +89,7 @@ void selection_sort (int vetor[])
                 min = j;
             }
         }
-        /* Se o minimo for diferente do primeiro numero n„o ordenado ele faz a troca para ordena-los*/
+        /* Se o minimo for diferente do primeiro numero n√£o ordenado ele faz a troca para ordena-los*/
         if (i != min)
         {
             aux = vetor[i];
@@ -138,7 +143,7 @@ void main()
         printf("\n5-Executar Busca Exaustiva no Vetor Desordenado");
         printf("\n6-Executar Busca Sequencial no Vetor Ordenado.");
         printf("\n0-Encerrando Programa.");
-        printf("\n\nSelecione uma OpÁ„o: ");
+        printf("\n\nSelecione uma Op√ß√£o: ");
         scanf("%d",&op);
 
         switch(op)
@@ -148,7 +153,7 @@ void main()
             i = 0;
             do
             {
-                printf("Insira o valor que deseja inserir na posiÁ„o %d: ",i);
+                printf("Insira o valor que deseja inserir na posi√ß√£o %d: ",i);
                 scanf("%d",&vet[i]);
                 i++;
             }
@@ -169,24 +174,24 @@ void main()
             scanf("%d",&num);
             retorno = buscaExaustiva(num,vet);
             if(retorno != -1)
-                printf("\nA chave foi encontrada na posiÁ„o %d.\n\n",retorno);
+                printf("\nA chave foi encontrada na posi√ß√£o %d.\n\n",retorno);
             else
-                printf("\nA chave n„o foi encontrada no vetor.\n\n");
+                printf("\nA chave n√£o foi encontrada no vetor.\n\n");
             break;
         case 6:
             printf("\nInsira a chave da pesquisa: ");
             scanf("%d",&num);
             retorno = buscaSequencial(num,vet);
             if(retorno != -1)
-                printf("\nA chave foi encontrada na posiÁ„o %d.\n\n",retorno);
+                printf("\nA chave foi encontrada na posi√ß√£o %d.\n\n",retorno);
             else
-                printf("\nA chave n„o foi encontrada no vetor.\n\n");
+                printf("\nA chave n√£o foi encontrada no vetor.\n\n");
             break;
         case 0:
             printf("\nPrograma Finalizado.\n");
             break;
         default:
-            printf("\nComando Inv·lido.\n");
+            printf("\nComando Inv√°lido.\n");
             break;
         }
     }
